@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="YoyBuy spreadsheet på svenska. Hitta kategorier för skor, kläder och accessoarer och jämför storlek, QC-bilder och frakt till Sverige.">
+  <title>YoyBuy spreadsheet – skor, kläder och QC-guide</title>
+  <!-- Sökunderlag: qcradar.com/yoybuy-spreadsheet, yoybuysheet.com, findsindex.com/en/yoybuy-spreadsheet, one-to-oneyupoo.com/spreadsheets/yoybuy/, yoybuyindex.com/en, www.yoybuy.org och YOYBUY:s hjälpcenter. Googles exakta topp 10 kunde inte verifieras. -->
+  <style>
+    :root{color-scheme:light;--bg:#f8f3eb;--paper:#fffdf8;--ink:#29222d;--muted:#5d515e;--plum:#452442;--line:#d9ccd5;--accent:#ffc9aa}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.6 system-ui,sans-serif}
+    .wrap{width:min(72rem,calc(100% - 2rem));margin-inline:auto}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2,h3{line-height:1.14;text-wrap:balance}
+    h1{font:700 clamp(2.6rem,7vw,5.6rem)/.98 Georgia,serif;letter-spacing:-.055em;overflow-wrap:anywhere}
+    h2{font:700 clamp(1.75rem,4vw,2.8rem)/1.12 Georgia,serif;margin-bottom:1rem}
+    h3{font-size:1.16rem;margin-bottom:.55rem}
+    p+p{margin-top:.8rem}
+    img{display:block;width:100%;height:auto}
+    a{color:var(--plum)}
+    a:focus-visible,summary:focus-visible{outline:3px solid #9d4b23;outline-offset:4px}
+    .hero{background:var(--plum);color:var(--paper);padding:clamp(1.5rem,5vw,4rem) 0}
+    .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(1rem,5vw,4rem);align-items:center}
+    .hero p{max-width:46ch;margin-top:1.15rem}
+    .hero figure{background:#fff;color:var(--ink);border-radius:1rem;overflow:hidden}
+    .hero img{aspect-ratio:5/3;object-fit:contain}
+    figcaption{padding:.5rem .9rem;font-size:.89rem;color:var(--muted)}
+    .button{display:inline-block;margin-top:1.25rem;padding:.65rem 1rem;border-radius:.45rem;background:var(--accent);color:#2f1931;font-weight:750;text-decoration:none}
+    .button:focus-visible{outline-color:currentColor}
+    main>section,main>nav{margin-block:clamp(2rem,5vw,4rem)}
+    .categories,.gallery,.articles{display:grid;gap:.75rem}
+    .categories{grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));list-style:none;margin:0;padding:0}
+    .categories a{display:flex;align-items:center;min-height:3.4rem;padding:.5rem .8rem;background:var(--paper);border:1px solid var(--line);border-radius:.55rem;font-weight:650;text-decoration:none}
+    .categories a:hover{background:#f2e3f0;text-decoration:underline}
+    .gallery{grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));margin-top:1rem}
+    .gallery figure,.articles article{overflow:hidden;border:1px solid var(--line);border-radius:.75rem;background:var(--paper)}
+    .gallery img{aspect-ratio:1;object-fit:contain;background:#fff}
+    .articles{grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))}
+    .articles article{padding:1.2rem}
+    details{border-top:1px solid var(--line);padding:.9rem 0}
+    details p{margin-top:.5rem;max-width:66ch}
+    summary{cursor:pointer;font-weight:700;color:var(--plum)}
+    footer{padding:1.2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    @media(max-width:42rem){.hero-grid{grid-template-columns:1fr}.hero figure{max-width:26rem}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "sv",
+    "name": "YoyBuy spreadsheet – frågor om produktlänkar, QC och frakt",
+    "mainEntity": [
+      {"@type":"Question","name":"Vad är YoyBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"Det är ett sätt att ordna produktlänkar efter kategori och jämföra varianter, mått och kostnader. Den här guiden är fristående och kategorilänkarna går till HipoBuyFind."}},
+      {"@type":"Question","name":"Kan jag använda samma produktlänk hos alla inköpsagenter?","acceptedAnswer":{"@type":"Answer","text":"Stöd för marknadsplatser och varor varierar. Kontrollera att din valda inköpsagent känner igen den aktuella säljarlänken och kan hantera rätt variant och destination."}},
+      {"@type":"Question","name":"Vad visar ett QC-foto?","acceptedAnswer":{"@type":"Answer","text":"Ett QC-foto kan visa synliga detaljer som sömmar, etiketter och ytskador. För att kontrollera mått, be om ett foto med måttband. För att bedöma äkthet behövs separat underlag."}},
+      {"@type":"Question","name":"Hur uppskattar jag fraktkostnaden till Sverige?","acceptedAnswer":{"@type":"Answer","text":"Be om ett fraktpris för paketets vikt, yttermått och svenska postnummer. Kontrollera om transportören räknar efter volymvikt och vilka avgifter som kan tillkomma."}}
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/cwypg/">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>YoyBuy spreadsheet</h1>
+        <p>En svensk guide för att hitta sneakers, kläder och accessoarer. Välj en kategori, jämför produktmått och läs vad du bör kontrollera innan du beställer till Sverige.</p>
+        <a class="button" href="https://www.hipobuyfind.com">Öppna HipoBuyFinds katalog</a>
+      </div>
+      <figure>
+        <img src="https://alssports.vteximg.com.br/arquivos/ids/3880705/10613661x1238466_alt1.jpg?v=639047806774730000" width="800" height="800" alt="Vit Nike Air Force 1 Texture-sneaker sedd från sidan" loading="eager" fetchpriority="high">
+        <figcaption>Nike Air Force 1 Texture · bildexempel</figcaption>
+      </figure>
+    </div>
+  </header>
+  <main class="wrap">
+    <nav aria-labelledby="categories">
+      <h2 id="categories">Bläddra bland kategorier</h2>
+      <ul class="categories">
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Skor</a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Huvtröjor och tröjor</a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirts</a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Jackor</a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Byxor och shorts</a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Kepsar och mössor</a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html">Klädset</a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underkläder</a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Matchtröjor</a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Accessoarer</a></li>
+      </ul>
+    </nav>
+    <section aria-labelledby="details">
+      <h2 id="details">Detaljer att jämföra</h2>
+      <p>Bilderna visar stilexempel. Kontrollera aktuellt sortiment i katalogen.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://au.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-denim-jacket--FVJA29EFY610_PM2_Front%20view.png?hei=480&amp;wid=480" width="480" height="480" alt="Blå Louis Vuitton-jeansjacka med monogram och bröstfickor" loading="lazy" decoding="async">
+          <figcaption>Louis Vuitton · jämför axelbredd och ärmlängd</figcaption>
+        </figure>
+        <figure>
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg" width="640" height="640" alt="Beige Gucci-keps i GG-mönstrad canvas" loading="lazy" decoding="async">
+          <figcaption>Gucci · kontrollera omkrets och justering</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.hermes.com/is/image/hermesproduct/bracelet-clic-h--700001F%204P-front-1-300-0-1000-1000_b.jpg?wid=480&amp;hei=480" width="480" height="480" alt="Hermès Clic H-armband med H-format spänne" loading="lazy" decoding="async">
+          <figcaption>Hermès · läs mått och kontrollera låset</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/E0078MIDRSD301_E09?%24bottom_GH_GHC%24=&amp;crop=0%2C0%2C2000%2C2000&amp;wid=480&amp;hei=480" width="480" height="480" alt="Dior Tribales-örhängen med små och stora vita pärldetaljer" loading="lazy" decoding="async">
+          <figcaption>Dior · jämför material och typ av fäste</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section aria-labelledby="guides">
+      <h2 id="guides">Från produktlänk till leverans</h2>
+      <div class="articles">
+        <article>
+          <h3>Skor och kläder som passar</h3>
+          <p>När du letar efter YoyBuy finds för sneakers, jämför innersulans längd i centimeter med ett par du redan använder. Kontrollera också tåboxens bredd och hur tjock strumpa du brukar ha.</p>
+          <p>För en huvtröja, mät ett plagg plant över bröstet. Jämför plaggets längd, axelbredd och ärmlängd med storlekstabellen. För byxor och shorts, jämför midjevidd och innerbenslängd.</p>
+        </article>
+        <article>
+          <h3>Produktlänkar och QC-bilder</h3>
+          <p>Spara säljarens originallänk tillsammans med vald färg, storlek, modellnummer och antal. Öppna länken igen före betalning och kontrollera att den visar samma variant.</p>
+          <p>Vid en YoyBuy QC-sökning, skilj säljarens katalogfoto från ett lagerfoto av ditt exemplar. Be om närbilder på sömmar, skosulor eller smyckeslås. Kontrollera returtiden innan paketet skickas vidare.</p>
+        </article>
+        <article>
+          <h3>Frakt till Sverige och total kostnad</h3>
+          <p>Räkna ihop varans pris, inrikes frakt till lagret, agentavgift och internationell frakt. Kontrollera om importmoms och hanteringsavgifter ingår i den offert du jämför.</p>
+          <p>Be om paketets faktiska vikt och yttermått efter packning. Jämför fraktalternativ för samma postnummer och kontrollera om spårning ingår.</p>
+        </article>
+      </div>
+    </section>
+    <section aria-labelledby="faq">
+      <h2 id="faq">Vanliga frågor</h2>
+      <details open>
+        <summary>Vad är YoyBuy spreadsheet?</summary>
+        <p>Det är ett sätt att ordna produktlänkar efter kategori och jämföra varianter, mått och kostnader. Den här guiden är fristående och kategorilänkarna går till HipoBuyFind.</p>
+      </details>
+      <details>
+        <summary>Kan jag använda samma produktlänk hos alla inköpsagenter?</summary>
+        <p>Stöd för marknadsplatser och varor varierar. Kontrollera att din valda inköpsagent känner igen den aktuella säljarlänken och kan hantera rätt variant och destination.</p>
+      </details>
+      <details>
+        <summary>Vad visar ett QC-foto?</summary>
+        <p>Ett QC-foto kan visa synliga detaljer som sömmar, etiketter och ytskador. För att kontrollera mått, be om ett foto med måttband. För att bedöma äkthet behövs separat underlag.</p>
+      </details>
+      <details>
+        <summary>Hur uppskattar jag fraktkostnaden till Sverige?</summary>
+        <p>Be om ett fraktpris för paketets vikt, yttermått och svenska postnummer. Kontrollera om transportören räknar efter volymvikt och vilka avgifter som kan tillkomma.</p>
+      </details>
+    </section>
+  </main>
+  <footer><div class="wrap">Fristående köpguide · Kategorierna öppnas hos HipoBuyFind.</div></footer>
+</body>
+</html>
